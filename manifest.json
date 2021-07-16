@@ -1,0 +1,33 @@
+{
+	"name":"Link Extractor",
+	"description":"A chrome extension which allows you to copy all links on a webpage",
+	"version":"0.0.1",
+	"manifest_version":2,
+	"icons": {
+		"16":"icons/img16x16.png",
+		"32":"icons/img32x32.png",
+		"48":"icons/img48x48.png",
+		"128":"icons/img128x128.png"
+	},
+	"background":{
+		"scripts":["./background.js"]
+	},
+	"content_scripts": [
+	    {
+	      "matches": ["http://*/*", "https://*/*"],
+	      "js": ["foreground.js"]
+	    }
+	  ],
+	"options_page": "./options.html",
+	"browser_action": {
+		"default_popup":"popup.html"
+	},
+	"permissions":[
+		"tabs",
+		"https://*/*",
+		"http://*/*",
+		"storage",
+		"clipboardRead",
+		"clipboardWrite"
+	]
+}
